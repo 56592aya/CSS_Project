@@ -1,3 +1,4 @@
+import tweepy
 from tweepy import StreamListener
 import json, time, sys
 
@@ -7,8 +8,10 @@ class SListener(StreamListener):
         self.api = api or API()
         self.counter = 0
         self.fprefix = fprefix
-        self.output  = open(fprefix + '.' 
-                            + time.strftime('%Y%m%d-%H%M%S') + '.json', 'w')
+        #self.output  = open(fprefix + '.' 
+        #                    + time.strftime('%Y%m%d-%H%M%S') + '.txt', 'w')
+        #self.hashes  = open(fprefix + 'hashes.' 
+        #                    + time.strftime('%Y%m%d-%H%M%S') + '.txt', 'w')
         self.delout  = open('delete.txt', 'a')
 
     def on_data(self, data):
@@ -28,17 +31,25 @@ class SListener(StreamListener):
             return false
 
     def on_status(self, status):
-        self.output.write(status + "\n")
+        #self.output.write(str(status.created_at)+ '\t'+  str(status.retweet_count) + '\t'+str(status.favorite_count) + '\n')
+        print status.created_at
+        #self.output.write(status.__getstate__().created_at+'\n')
+        #hashtags = status.entities['hashtags']
+        #for hashtag in hashtags:
+            #print hashtag['text'].lower()
+            #teamhashes.append(hashtag['text'].lower())
+            #self.hashes.write(hashtag['text'].lower())
+        '''self.counter += 1
 
-        self.counter += 1
-
-        if self.counter >= 20000:
+        if self.counter >= 200000:
             self.output.close()
             self.output = open('../streaming_data/' + self.fprefix + '.' 
-                               + time.strftime('%Y%m%d-%H%M%S') + '.json', 'w')
+                               + time.strftime('%Y%m%d-%H%M%S') + '.txt', 'w')
+            #self.hashes = open('../streaming_data/hashes' + self.fprefix + '.' 
+            #                   + time.strftime('%Y%m%d-%H%M%S') + '.txt', 'w')
             self.counter = 0
-
-        return
+        '''
+        #return
 
     def on_delete(self, status_id, user_id):
         self.delout.write( str(status_id) + "\n")

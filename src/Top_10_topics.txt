@@ -1,0 +1,10 @@
+bulls	10981
+nets	3331
+netsvbulls	2624
+seered	1668
+nbaplayoffs	1478
+nba	908
+bullsnation	610
+getglue	475
+chicago	401
+playoffs	399
