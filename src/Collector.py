@@ -4,10 +4,10 @@ import sys
 import tweepy
 import codecs
 
-consumer_key="oNKbn27R5HKxkCCGGeyfnQ"
-consumer_secret="ifIR9VUcewWw5qn969v0hoNG2v7IOuDxtP3mEPs2swc"
-access_key = "49574951-wGd6EaXhgSkW0ufN23IienrxEZeIgT06DWPZ9SY7n"
-access_secret = "E2CnjvAAnWu17P25w29qunET3Az3pxRZvNl41ogBjE" 
+consumer_key=""
+consumer_secret=""
+access_key = ""
+access_secret = "" 
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
